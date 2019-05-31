@@ -8,19 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		1ECA298BA40B3D05984A567A /* Pods_Rucksack_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90C6A59FA9FB4DB13BDE75F /* Pods_Rucksack_Tests.framework */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		EFE69C5722A140CE00878B84 /* CollectionResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE69C5622A140CE00878B84 /* CollectionResponseSpec.swift */; };
+		EFE69C5B22A1412000878B84 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE69C5822A1412000878B84 /* Category.swift */; };
+		EFE69C5C22A1412000878B84 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE69C5922A1412000878B84 /* Author.swift */; };
+		EFE69C5D22A1412000878B84 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE69C5A22A1412000878B84 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0BA66AAAEBF8B32BADC424F7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		4BEC2215ED7C96C60C412578 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		5007EAEFC5BC6E118008F64B /* Rucksack.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Rucksack.podspec; path = ../Rucksack.podspec; sourceTree = "<group>"; };
+		0BA66AAAEBF8B32BADC424F7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		4BEC2215ED7C96C60C412578 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5007EAEFC5BC6E118008F64B /* Rucksack.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Rucksack.podspec; path = ../Rucksack.podspec; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Rucksack_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rucksack_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		864BFCF6E1653D08B6721870 /* Pods-Rucksack_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rucksack_Tests.release.xcconfig"; path = "Target Support Files/Pods-Rucksack_Tests/Pods-Rucksack_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CD2D062184B0679ABC5F8FD5 /* Pods-Rucksack_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rucksack_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Rucksack_Tests/Pods-Rucksack_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D90C6A59FA9FB4DB13BDE75F /* Pods_Rucksack_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rucksack_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFE69C5622A140CE00878B84 /* CollectionResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionResponseSpec.swift; sourceTree = "<group>"; };
+		EFE69C5822A1412000878B84 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Models/Category.swift; sourceTree = "<group>"; };
+		EFE69C5922A1412000878B84 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Author.swift; path = Models/Author.swift; sourceTree = "<group>"; };
+		EFE69C5A22A1412000878B84 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Models/Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +71,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				EFE69C5522A1409400878B84 /* Models */,
+				EFE69C5622A140CE00878B84 /* CollectionResponseSpec.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -95,8 +102,17 @@
 				CD2D062184B0679ABC5F8FD5 /* Pods-Rucksack_Tests.debug.xcconfig */,
 				864BFCF6E1653D08B6721870 /* Pods-Rucksack_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EFE69C5522A1409400878B84 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EFE69C5922A1412000878B84 /* Author.swift */,
+				EFE69C5822A1412000878B84 /* Category.swift */,
+				EFE69C5A22A1412000878B84 /* Post.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,14 +147,9 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
-						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -147,6 +158,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -222,7 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				EFE69C5C22A1412000878B84 /* Author.swift in Sources */,
+				EFE69C5722A140CE00878B84 /* CollectionResponseSpec.swift in Sources */,
+				EFE69C5B22A1412000878B84 /* Category.swift in Sources */,
+				EFE69C5D22A1412000878B84 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +289,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -320,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -346,7 +361,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rucksack_Example.app/Rucksack_Example";
 			};
 			name = Debug;
 		};
@@ -364,7 +378,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rucksack_Example.app/Rucksack_Example";
 			};
 			name = Release;
 		};

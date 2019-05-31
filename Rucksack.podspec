@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Rucksack'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Rucksack.'
+  s.summary          = 'An opinionated JSONAPI client library written in Swift'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,20 +18,23 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+An opinionated JSONAPI client library written in Swift.
+
+*WIP* This library is still very much a work in progress.
+Trying to decode a dynamic specification like the JSONAPI using a strictly typed language like Swift
+provides some interesting challenges. This library is mostly an exercise in how or if these can be overcome.
                        DESC
 
   s.homepage         = 'https://github.com/col/Rucksack'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'col' => 'col.w.harris@gmail.com' }
   s.source           = { :git => 'https://github.com/col/Rucksack.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.swift_versions = '5.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'Rucksack/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'Rucksack' => ['Rucksack/Assets/*.png']
   # }
