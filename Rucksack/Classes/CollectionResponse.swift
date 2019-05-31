@@ -9,8 +9,8 @@
 public class CollectionResponse: Response, Decodable {
 //    public var errors: [ResponseError]?
     public var links: [String: String]?
-    var data: [Resource]
-    var included: [Resource]?
+    public var data: [Resource]
+    public var included: [Resource]?
     
     init(data: [Resource], included: [Resource]? = nil) {
         self.data = data
