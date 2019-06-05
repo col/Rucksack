@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		0BA66AAAEBF8B32BADC424F7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4BEC2215ED7C96C60C412578 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		5007EAEFC5BC6E118008F64B /* Rucksack.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Rucksack.podspec; path = ../Rucksack.podspec; sourceTree = "<group>"; };
+		5007EAEFC5BC6E118008F64B /* Rucksack.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Rucksack.podspec; path = ../Rucksack.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACE51AFB9204008FA782 /* Rucksack_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Rucksack_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		864BFCF6E1653D08B6721870 /* Pods-Rucksack_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rucksack_Tests.release.xcconfig"; path = "Target Support Files/Pods-Rucksack_Tests/Pods-Rucksack_Tests.release.xcconfig"; sourceTree = "<group>"; };
