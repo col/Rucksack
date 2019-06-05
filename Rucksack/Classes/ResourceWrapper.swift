@@ -6,7 +6,7 @@
 //  Copyright © 2019 Colin Harris. All rights reserved.
 //
 
-struct ResourceWrapper {
+public struct ResourceWrapper {
     var resource: Resource?    
 }
 
@@ -18,7 +18,7 @@ extension ResourceWrapper: Decodable {
         case relationships
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let typeString = try container.decode(String.self, forKey: .type)
         

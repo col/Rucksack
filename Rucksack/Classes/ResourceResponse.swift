@@ -12,7 +12,7 @@ public class ResourceResponse: Response, Decodable {
     public var data: Resource?
     public var included: [Resource]?
     
-    init(data: Resource, included: [Resource]? = nil) {
+    public init(data: Resource, included: [Resource]? = nil) {
         self.data = data
         self.included = included
     }

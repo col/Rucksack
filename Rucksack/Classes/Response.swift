@@ -7,6 +7,7 @@
 //
 
 public protocol Response {
-//    var errors: [ResponseError]? { get }
+    var errors: [ResponseError]? { get }
     var links: [String: String]? { get }
+    var included: [Resource]? { get }
 }
