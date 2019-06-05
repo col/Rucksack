@@ -7,7 +7,7 @@
 //
 
 public struct ResourceWrapper {
-    var resource: Resource?    
+    public var resource: Resource?    
 }
 
 extension ResourceWrapper: Decodable {
