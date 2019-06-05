@@ -1,16 +1,16 @@
 //
-//  CollectionResponseSpec.swift
-//  RucksackTests
+//  ResourceResponseSpec.swift
+//  Rucksack_Tests
 //
-//  Created by Colin Harris on 30/5/19.
-//  Copyright © 2019 Colin Harris. All rights reserved.
+//  Created by Colin Harris on 5/6/19.
+//  Copyright © 2019 CocoaPods. All rights reserved.
 //
 
 import Quick
 import Nimble
 @testable import Rucksack
 
-class CollectionResponseSpec: QuickSpec {
+class ResourceResponseSpec: QuickSpec {
     override func spec() {
         beforeEach {
             ResourceTypeRegistry.addType(Post.self, for: "Post")
@@ -18,27 +18,25 @@ class CollectionResponseSpec: QuickSpec {
             ResourceTypeRegistry.addType(Author.self, for: "Author")
         }
         
-        it("correctly decodes a collection document") {
+        it("correctly decodes a single resource document") {
             let jsonData = """
                 {
-                    "data": [
-                        {
-                            "id": "1",
-                            "type": "Post",
-                            "attributes": {
-                                "title": "Blah Blah"
+                    "data": {
+                        "id": "1",
+                        "type": "Post",
+                        "attributes": {
+                            "title": "Blah Blah"
+                        },
+                        "relationships": {
+                            "category": {
+                                "data": { "id": "2", "type": "Category" }
                             },
-                            "relationships": {
-                                "category": {
-                                    "data": { "id": "2", "type": "Category" }
-                                },
-                                "authors": [
-                                    { "data": { "id": "3", "type": "Author" } },
-                                    { "data": { "id": "4", "type": "Author" } }
-                                ]
-                            }
+                            "authors": [
+                                { "data": { "id": "3", "type": "Author" } },
+                                { "data": { "id": "4", "type": "Author" } }
+                            ]
                         }
-                    ],
+                    },
                     "included": [
                         {
                             "id": "3",
@@ -63,17 +61,18 @@ class CollectionResponseSpec: QuickSpec {
                         }
                     ]
                 }
-                """.data(using: .utf8)!
+            """.data(using: .utf8)!
             
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             
-            let response = try! decoder.decode(CollectionResponse.self, from: jsonData)
+            let response = try! decoder.decode(ResourceResponse.self, from: jsonData)
+            expect(response).toNot(beNil())
+            expect(response.data).toNot(beNil())
             
-            expect(response.data?.count).to(equal(1))
-            
-            expect(response.data?[0]).to(beAKindOf(Post.self))
-            let post = response.data?[0] as! Post
+            expect(response.data).to(beAKindOf(Post.self))
+            let post = response.data as! Post
+            expect(post).toNot(beNil())
             expect(post.id).to(equal("1"))
             expect(post.title).to(equal("Blah Blah"))
             // Category
@@ -88,7 +87,7 @@ class CollectionResponseSpec: QuickSpec {
             
             // Included
             expect(response.included?.count).to(equal(3))
-
+            
             expect(response.included?[0]).to(beAKindOf(Author.self))
             let author = response.included?[0] as! Author
             expect(author.id).to(equal("3"))
@@ -119,12 +118,12 @@ class CollectionResponseSpec: QuickSpec {
                     ]
                 }
                 """.data(using: .utf8)!
-            
+
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
+
             let response = try! decoder.decode(CollectionResponse.self, from: jsonData)
-            
+
             expect(response.data).to(beNil())
             expect(response.errors?.count).to(equal(1))
             let error = response.errors?[0]

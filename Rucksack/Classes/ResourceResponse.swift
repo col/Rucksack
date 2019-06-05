@@ -7,9 +7,9 @@
 //
 
 public class ResourceResponse: Response, Decodable {
-//    public var errors: [ResponseError]?
+    public var errors: [ResponseError]?
     public var links: [String: String]?
-    public var data: Resource
+    public var data: Resource?
     public var included: [Resource]?
     
     init(data: Resource, included: [Resource]? = nil) {
@@ -21,19 +21,28 @@ public class ResourceResponse: Response, Decodable {
         case links
         case data
         case included
+        case errors
     }
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        let resourceWrapper = try container.decode(ResourceWrapper.self, forKey: .data)        
-        self.data = resourceWrapper.resource!
+        if container.contains(.errors) {
+            self.errors = try container.decode([ResponseError].self, forKey: .errors)
+        }
         
-        let includedResourceWrappers = try container.decode([ResourceWrapper].self, forKey: .included)
-        self.included = includedResourceWrappers.compactMap { $0.resource }
+        if container.contains(.data) {
+            let resourceWrapper = try container.decode(ResourceWrapper.self, forKey: .data)
+            self.data = resourceWrapper.resource!
+        }
+        
+        if container.contains(.included) {
+            let includedResourceWrappers = try container.decode([ResourceWrapper].self, forKey: .included)
+            self.included = includedResourceWrappers.compactMap { $0.resource }
+        }
         
         if let included = included {
-            self.data.assignRelationships(from: included)
+            self.data?.assignRelationships(from: included)
         }
     }
 }
