@@ -12,11 +12,13 @@ import Nimble
 
 class CollectionResponseSpec: QuickSpec {
     override func spec() {
-        it("correctly decodes a collection document") {
+        beforeEach {
             ResourceTypeRegistry.addType(Post.self, for: "Post")
             ResourceTypeRegistry.addType(Category.self, for: "Category")
             ResourceTypeRegistry.addType(Author.self, for: "Author")
-            
+        }
+        
+        it("correctly decodes a collection document") {
             let jsonData = """
                 {
                     "data": [
@@ -68,10 +70,10 @@ class CollectionResponseSpec: QuickSpec {
             
             let response = try! decoder.decode(CollectionResponse.self, from: jsonData)
             
-            expect(response.data.count).to(equal(1))            
+            expect(response.data?.count).to(equal(1))
             
-            expect(response.data[0]).to(beAKindOf(Post.self))
-            let post = response.data[0] as! Post
+            expect(response.data?[0]).to(beAKindOf(Post.self))
+            let post = response.data?[0] as! Post
             expect(post.id).to(equal("1"))
             expect(post.title).to(equal("Blah Blah"))
             // Category
@@ -101,6 +103,36 @@ class CollectionResponseSpec: QuickSpec {
             let category = response.included?[2] as! Category
             expect(category.id).to(equal("2"))
             expect(category.name).to(equal("Featured"))
+        }
+        
+        it("handles errors correctly") {
+            let jsonData = """
+                {
+                    "errors": [
+                        {
+                            "id": "asdf-qwer-zxcv",
+                            "status": "404",
+                            "code": "resource-not-found",
+                            "title": "Error",
+                            "detail": "Resource Not Found"
+                        }
+                    ]
+                }
+                """.data(using: .utf8)!
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let response = try! decoder.decode(CollectionResponse.self, from: jsonData)
+            
+            expect(response.data).to(beNil())
+            expect(response.errors?.count).to(equal(1))
+            let error = response.errors?[0]
+            expect(error?.id).to(equal("asdf-qwer-zxcv"))
+            expect(error?.status).to(equal("404"))
+            expect(error?.code).to(equal("resource-not-found"))
+            expect(error?.title).to(equal("Error"))
+            expect(error?.detail).to(equal("Resource Not Found"))
         }
     }
 }
