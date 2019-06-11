@@ -1,0 +1,8 @@
+coverage_service: cobertura_xml
+workspace: Example/Rucksack.xcworkspace
+xcodeproj: Example/Rucksack.xcodeproj
+scheme: Rucksack-Example
+output_directory: reports
+source_directory: Rucksack/Classes
+ignore:
+  - Example/Tests/*
