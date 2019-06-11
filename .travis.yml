@@ -13,6 +13,7 @@ cache: cocoapods
 podfile: Example/Podfile
 before_install:
 - gem install cocoapods
+- gem install slather
 - pod repo update
 - pod install --project-directory=Example
 
