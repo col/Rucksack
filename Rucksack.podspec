@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Rucksack'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'An opinionated JSONAPI client library written in Swift'
 
   s.description      = <<-DESC
