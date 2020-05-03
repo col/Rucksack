@@ -23,8 +23,15 @@ extension ResourceReference: Decodable {
     
     public init(from decoder: Decoder) throws {
         let dataContainer = try decoder.container(keyedBy: DataCodingKeys.self)
-        let container = try dataContainer.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
-        self.id = try container.decode(String.self, forKey: .id)
-        self.type = try container.decode(String.self, forKey: .type)
+                
+        if dataContainer.contains(.data) {
+            let container = try dataContainer.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
+            self.id = try container.decode(String.self, forKey: .id)
+            self.type = try container.decode(String.self, forKey: .type)
+        } else {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.id = try container.decode(String.self, forKey: .id)
+            self.type = try container.decode(String.self, forKey: .type)
+        }
     }
 }
